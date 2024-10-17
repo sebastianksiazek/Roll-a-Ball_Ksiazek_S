@@ -10,7 +10,6 @@ public class CameraContoller : MonoBehaviour
     public GameObject Player;
     void Start()
     {
-        //testttttttttttttttttttttttttttttttttt
         offset = Player.transform.position - transform.position;
     }
 
