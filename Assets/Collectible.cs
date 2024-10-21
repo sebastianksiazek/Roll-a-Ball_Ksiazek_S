@@ -13,11 +13,13 @@ public class Collectible : MonoBehaviour
     void Update()
     {
         transform.Rotate(90 * Time.deltaTime, 0, 90 * Time.deltaTime);
-
-
     }
-    private void OnTriggerEnter(Collider collision)
+    void OnCollisionEnter(Collision collision)
     {
-       // Collision.collectives.GetComponent<MovementController>().score += 1;
+        // Collision.collectives.GetComponent<MovementController>().score += 1;
+        //gameObject.SetActive(false);
+        if (collision != null) {
+            gameObject.SetActive(false);
+        }
     }
 }
