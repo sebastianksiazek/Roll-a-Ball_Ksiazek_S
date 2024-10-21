@@ -17,5 +17,5 @@ public class CameraContoller : MonoBehaviour
     void Update()
     {
         transform.position = Player.transform.position - vector;
-    }
+    }//test
 }
