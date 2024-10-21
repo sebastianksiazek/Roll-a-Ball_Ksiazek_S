@@ -13,14 +13,6 @@ public class MovementController : MonoBehaviour
         float thrust = 10f;
         rb.AddForce(0, 0, thrust, ForceMode.Force   );
     }
-    void OnCollisionEnter(Collision collision)
-    {
-        //if (collision != null)
-        //{
-
-            Debug.Log("Score: " + collision.gameObject.GetComponent<Collectible>().scoreValue);
-        //}
-    }
 
     // Update is called once per frame
     void Update()
