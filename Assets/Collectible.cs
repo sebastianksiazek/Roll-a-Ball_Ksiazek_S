@@ -13,12 +13,10 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     {
-        if (collision != null)
-        {
-            gameObject.SetActive(false);
-            scoreValue += 1;
-        }
-
+        scoreValue += 1;
+        collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
+        Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
+        gameObject.SetActive(false);
     }
     void Update()
     {
