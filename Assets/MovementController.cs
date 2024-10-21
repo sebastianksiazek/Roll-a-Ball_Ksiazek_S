@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    public int scoreValue;
     public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
