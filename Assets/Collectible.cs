@@ -21,6 +21,7 @@ public class Collectible : MonoBehaviour
         {
            Debug.Log("You win!");
         }
+        //score
     }
     void Update()
     {
