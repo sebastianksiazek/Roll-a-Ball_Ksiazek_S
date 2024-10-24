@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MovementController : MonoBehaviour
 {
     public Text text;
+    public Text koniecgry;
     public int scoreValue;
     public Rigidbody rb;
     // Start is called before the first frame update
@@ -21,6 +22,11 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (scoreValue == 4 ) {
+
+            koniecgry.text = "Koniec Gry!";
+            
+        }
         text.text = "Score: " + scoreValue;
         if (Input.GetButtonDown("Fire1"))
         {
@@ -63,4 +69,5 @@ public class MovementController : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(Vector3.right * 2    , ForceMode.Force);    
         }
     }
+
 }

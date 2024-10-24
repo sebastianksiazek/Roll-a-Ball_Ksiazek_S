@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Globalization;
 
 public class Collectible : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     {
+
         //scoreValue += 1;
         collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
         Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
