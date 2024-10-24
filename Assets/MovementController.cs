@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class MovementController : MonoBehaviour
 {
+    public Text text;
     public int scoreValue;
     public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
+        text.text = "Score: " + scoreValue;
         rb = GetComponent<Rigidbody>();
         float thrust = 10f;
         rb.AddForce(0, 0, thrust, ForceMode.Force   );
@@ -17,6 +21,7 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        text.text = "Score: " + scoreValue;
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log(Input.mousePosition);
