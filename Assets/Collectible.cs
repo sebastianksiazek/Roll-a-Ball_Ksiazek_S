@@ -12,6 +12,7 @@ public class Collectible : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
@@ -20,13 +21,14 @@ public class Collectible : MonoBehaviour
         //scoreValue += 1;
         collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
         Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         if (collision.gameObject.GetComponent<MovementController>().scoreValue == 4)
         {
            Debug.Log("You win!");
            SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
-
+        //dodawnie dzwieku do zebrania obiektu
+        GetComponent<AudioSource>().Play();
     }
     void Update()
     {
