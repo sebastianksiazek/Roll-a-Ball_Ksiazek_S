@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Globalization;
+using UnityEditor.Build.Content;
+using UnityEngine.SceneManagement;
 
 public class Collectible : MonoBehaviour
 {
@@ -22,7 +24,9 @@ public class Collectible : MonoBehaviour
         if (collision.gameObject.GetComponent<MovementController>().scoreValue == 4)
         {
            Debug.Log("You win!");
+           SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
+
     }
     void Update()
     {
