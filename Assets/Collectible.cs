@@ -14,24 +14,22 @@ public class Collectible : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-        {
-
-        }
+    {
+        pickUpSound = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     {
-
-        //scoreValue += 1;
         collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
         Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
-        GetComponent<AudioSource>().Play();
+        pickUpSound = GameObject.Find("soundCollectible").GetComponent<AudioSource>();
+        pickUpSound.Play(); // Play the sound when the collectible is picked up
         gameObject.SetActive(false);
         if (collision.gameObject.GetComponent<MovementController>().scoreValue == 4)
         {
             Debug.Log("You win!");
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
-        pickUpSound = GetComponent<AudioSource>();
     }
     void Update()
     {
