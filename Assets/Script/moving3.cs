@@ -8,7 +8,6 @@ public class moving3 : MonoBehaviour
     public float minZ = 1;
     public float maxZ = 6;
     private bool left = false;
-//TESTSDTTETSETSTTE
     void Update()
     {
         Vector3 v = transform.position;
