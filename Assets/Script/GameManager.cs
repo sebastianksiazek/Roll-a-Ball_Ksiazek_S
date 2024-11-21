@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         GameObject[] collectibles = GameObject.FindGameObjectsWithTag("Collectibles");
         int maxScore = collectibles.Length;
         Debug.Log("Total collectibles: " + maxScore);
+
     }
 
     // Update is called once per frame

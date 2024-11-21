@@ -68,11 +68,11 @@ public class MovementController : MonoBehaviour
         rb.AddForce(0, 0, thrust, ForceMode.Force);
     }
 
+
     // Update is called once per frame
     void Update()
     {
         if (scoreValue == 4 ) {
-
             koniecgry.text = "Koniec Gry!";
         }
         GetInput();
