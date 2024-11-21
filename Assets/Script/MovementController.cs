@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Xml.Serialization;
 
 public class MovementController : MonoBehaviour
 {
@@ -14,19 +15,10 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         text.text = "Score: " + scoreValue;
-        rb = GetComponent<Rigidbody>();
-        float thrust = 10f;
-        rb.AddForce(0, 0, thrust, ForceMode.Force   );
+        OnMove();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void GetInput()
     {
-        if (scoreValue == 4 ) {
-
-            koniecgry.text = "Koniec Gry!";
-            
-        }
         text.text = "Score: " + scoreValue;
         if (Input.GetButtonDown("Fire1"))
         {
@@ -38,7 +30,7 @@ public class MovementController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("W key was pressed"); 
+            Debug.Log("W key was pressed");
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -54,7 +46,7 @@ public class MovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * 2, ForceMode.Force);  
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * 2, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -62,12 +54,28 @@ public class MovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.back  * 2, ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce(Vector3.back * 2, ForceMode.Force);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.right * 2    , ForceMode.Force);    
+            GetComponent<Rigidbody>().AddForce(Vector3.right * 2, ForceMode.Force);
         }
+    }
+    private void OnMove()
+    {
+        rb = GetComponent<Rigidbody>();
+        float thrust = 10f;
+        rb.AddForce(0, 0, thrust, ForceMode.Force);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (scoreValue == 4 ) {
+
+            koniecgry.text = "Koniec Gry!";
+        }
+        GetInput();
     }
 
 }

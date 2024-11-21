@@ -23,7 +23,7 @@ public class Collectible : MonoBehaviour
         collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
         Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
         pickUpSound = GameObject.Find("soundCollectible").GetComponent<AudioSource>();
-        pickUpSound.Play(); // Play the sound when the collectible is picked up
+        pickUpSound.Play();
         gameObject.SetActive(false);
         if (collision.gameObject.GetComponent<MovementController>().scoreValue == 4)
         {
@@ -31,8 +31,12 @@ public class Collectible : MonoBehaviour
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
     }
-    void Update()
+    private void RotateCollectible()
     {
         transform.Rotate(90 * Time.deltaTime, 0, 90 * Time.deltaTime);
+    }
+    void Update()
+    {
+        RotateCollectible();
     }
 }
