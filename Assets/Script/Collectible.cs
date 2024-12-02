@@ -35,6 +35,7 @@ public class Collectible : MonoBehaviour
     {
         transform.Rotate(90 * Time.deltaTime, 0, 90 * Time.deltaTime);
     }
+
     void Update()
     {
         RotateCollectible();

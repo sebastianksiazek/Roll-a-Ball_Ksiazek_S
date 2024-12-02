@@ -14,7 +14,6 @@ public class MovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text.text = "Score: " + scoreValue;
         OnMove();
     }
     private void GetInput()
@@ -67,14 +66,21 @@ public class MovementController : MonoBehaviour
         float thrust = 10f;
         rb.AddForce(0, 0, thrust, ForceMode.Force);
     }
+   /* public void CollectScore()
+    {
+        //scoreValue += 1;
+        text.text = "Score: " + scoreValue;
+        if (scoreValue == 4)
+        {
+            koniecgry.text = "Koniec Gry!";
+        }
+    }*/
 
 
     // Update is called once per frame
     void Update()
     {
-        if (scoreValue == 4 ) {
-            koniecgry.text = "Koniec Gry!";
-        }
+        //CollectScore();
         GetInput();
     }
 

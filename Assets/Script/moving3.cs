@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class moving3 : MonoBehaviour
 {
+    [SerializeField]
     public float speed = 2;
     public float minZ = 1;
     public float maxZ = 6;
