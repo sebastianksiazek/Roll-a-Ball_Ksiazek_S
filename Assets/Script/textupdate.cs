@@ -20,20 +20,20 @@ public class textupdate : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         text = GetComponent<Text>();
     }
-   // void onCollisionEnter(Collision collision)
-  //  {
-      //  collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
-      //  Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
-      //  text.text = "Score: " + scoreValue;
-     //   if (scoreValue == 4)
-      // {
-       //     koniecgry.text = "Koniec Gry!";
-//}
-  //  }
+    // void onCollisionEnter(Collision collision)
+    //  {
+    //  collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
+    //  Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
+    //  text.text = "Score: " + scoreValue;
+    //   if (scoreValue == 4)
+    // {
+    //     koniecgry.text = "Koniec Gry!";
+    //}
+    //  }
 
     // Update is called once per frame
     void Update()
     {
-      // CollectScore();
+        // CollectScore();
     }
 }
