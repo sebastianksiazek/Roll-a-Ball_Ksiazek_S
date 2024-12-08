@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 6474343771a3eb44a83d6646f8c5cc8a, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6001d7d793b0f4a4f923ec2a20c69add, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 8150597990ca90a4a8aa7ce72439ef23, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -1718,7 +1718,7 @@ Transform:
   m_GameObject: {fileID: 547286670}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 1.3, z: 0.03}
+  m_LocalPosition: {x: 0.366, y: 0.33, z: 0.376}
   m_LocalScale: {x: 0.69948, y: 0.69948, z: 0.69948}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1735,8 +1735,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.8490566, g: 0.6487115, b: 0.03604484, a: 1}
-  m_Intensity: 7.31
-  m_Range: 0.98
+  m_Intensity: 3.23
+  m_Range: 1.02
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2367,8 +2367,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.8490566, g: 0.6487115, b: 0.03604484, a: 1}
-  m_Intensity: 1.81
-  m_Range: 3.93
+  m_Intensity: 2.59
+  m_Range: 1.93
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3151,7 +3151,7 @@ Transform:
   m_GameObject: {fileID: 1928602714}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.45890456, y: 0.15534198, z: -0.40890193}
+  m_LocalPosition: {x: 0.482, y: 0.16, z: 0.046}
   m_LocalScale: {x: 0.69948, y: 0.69948, z: 0.69947994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3168,8 +3168,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.8490566, g: 0.6487115, b: 0.03604484, a: 1}
-  m_Intensity: 1.92
-  m_Range: 3.71
+  m_Intensity: 3.04
+  m_Range: 1.26
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
