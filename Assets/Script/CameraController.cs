@@ -12,7 +12,7 @@ public class CameraContoller : MonoBehaviour
     public GameObject Player;
     void Start()
     {
-        vector = Player.transform.position - transform.position;  
+        vector = Player.transform.position - transform.position;
     }
     private void CameraUpdate()
     {

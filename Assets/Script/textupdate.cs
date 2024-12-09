@@ -1,39 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using System.Globalization;
-using UnityEditor.Build.Content;
-using UnityEngine.SceneManagement;
-using JetBrains.Annotations;
+using UnityEngine.UI;
 
 public class textupdate : MonoBehaviour
 {
-    public int scoreValue;
-    public Text text;
-    public Text koniecgry;
-    private GameObject player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject player;  // Referencja do gracza
+    public Text scoreText;  // Referencja do komponentu tekstu
+
+    private MovementController movementController;  // Referencja do komponentu gracza
+
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        text = GetComponent<Text>();
-    }
-    // void onCollisionEnter(Collision collision)
-    //  {
-    //  collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
-    //  Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
-    //  text.text = "Score: " + scoreValue;
-    //   if (scoreValue == 4)
-    // {
-    //     koniecgry.text = "Koniec Gry!";
-    //}
-    //  }
+        if (player != null)
+        {
+            movementController = player.GetComponent<MovementController>();
 
-    // Update is called once per frame
+            if (movementController == null)
+            {
+                Debug.LogError("Brak komponentu MovementController na obiekcie gracza!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Gracz nie jest przypisany w inspektorze!");
+        }
+    }
+
     void Update()
     {
-        // CollectScore();
+        if (movementController != null && scoreText != null)
+        {
+            // Aktualizowanie tekstu z aktualn¹ wartoœci¹ scoreValue
+            scoreText.text = "Score: " + movementController.scoreValue.ToString();
+        }
+        else
+        {
+            if (movementController == null)
+            {
+                Debug.LogError("MovementController jest nullem.");
+            }
+
+            if (scoreText == null)
+            {
+                Debug.LogError("scoreText jest nullem.");
+            }
+        }
     }
 }

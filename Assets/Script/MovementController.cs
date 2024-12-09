@@ -14,11 +14,10 @@ public class MovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OnMove();
+
     }
     private void GetInput()
     {
-        text.text = "Score: " + scoreValue;
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log(Input.mousePosition);
@@ -57,30 +56,15 @@ public class MovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.right * 2, ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce(Vector3.right * 2 ,ForceMode.Force);
         }
     }
-    private void OnMove()
-    {
-        rb = GetComponent<Rigidbody>();
-        float thrust = 10f;
-        rb.AddForce(0, 0, thrust, ForceMode.Force);
-    }
-   /* public void CollectScore()
-    {
-        //scoreValue += 1;
-        text.text = "Score: " + scoreValue;
-        if (scoreValue == 4)
-        {
-            koniecgry.text = "Koniec Gry!";
-        }
-    }*/
+
 
 
     // Update is called once per frame
     void Update()
     {
-        //CollectScore();
         GetInput();
     }
 

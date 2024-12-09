@@ -20,17 +20,27 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<MovementController>().scoreValue += 1;
-        Debug.Log("Score: " + collision.gameObject.GetComponent<MovementController>().scoreValue);
+        var movementController = collision.gameObject.GetComponent<MovementController>();
+
+        if (movementController != null)
+        {
+            // Sprawdzamy, czy wartoœæ scoreValue jest zmieniana
+            movementController.scoreValue += 1;
+            Debug.Log("Zbieranie przedmiotu! Nowy wynik: " + movementController.scoreValue);
+        }
+
         pickUpSound = GameObject.Find("soundCollectible").GetComponent<AudioSource>();
         pickUpSound.Play();
         gameObject.SetActive(false);
-        if (collision.gameObject.GetComponent<MovementController>().scoreValue == 4)
+
+        if (movementController.scoreValue == 4)
         {
             Debug.Log("You win!");
             SceneManager.LoadScene(1, LoadSceneMode.Single);
         }
     }
+
+
     private void RotateCollectible()
     {
         transform.Rotate(90 * Time.deltaTime, 0, 90 * Time.deltaTime);
