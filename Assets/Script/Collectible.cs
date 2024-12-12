@@ -24,7 +24,6 @@ public class Collectible : MonoBehaviour
 
         if (movementController != null)
         {
-            // Sprawdzamy, czy wartoœæ scoreValue jest zmieniana
             movementController.scoreValue += 1;
             Debug.Log("Zbieranie przedmiotu! Nowy wynik: " + movementController.scoreValue);
         }

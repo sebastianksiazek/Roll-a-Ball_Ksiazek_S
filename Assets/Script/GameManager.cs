@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        tableCollectibles();
     }
     public void tableCollectibles()
     {
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tableCollectibles();
+
     }
 
 }

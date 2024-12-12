@@ -1,13 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
+using UnityEngine.UI; 
 
 public class textupdate : MonoBehaviour
 {
-    public GameObject player;  // Referencja do gracza
-    public Text scoreText;  // Referencja do komponentu tekstu
+    public GameObject player;
+    public Text scoreText;   
+    public Text koniecgry;    
 
-    private MovementController movementController;  // Referencja do komponentu gracza
+    private MovementController movementController; 
 
     void Start()
     {
@@ -20,29 +22,22 @@ public class textupdate : MonoBehaviour
                 Debug.LogError("Brak komponentu MovementController na obiekcie gracza!");
             }
         }
-        else
-        {
-            Debug.LogError("Gracz nie jest przypisany w inspektorze!");
-        }
     }
 
     void Update()
     {
         if (movementController != null && scoreText != null)
         {
-            // Aktualizowanie tekstu z aktualn¹ wartoœci¹ scoreValue
             scoreText.text = "Score: " + movementController.scoreValue.ToString();
-        }
-        else
-        {
-            if (movementController == null)
+            if (movementController.scoreValue >= 4)
             {
-                Debug.LogError("MovementController jest nullem.");
-            }
+                if (koniecgry != null)
+                {
+                    //Invoke("Koniec Gry!", 1.5f);
+                    koniecgry.text = "Koniec Gry!";
+                }
 
-            if (scoreText == null)
-            {
-                Debug.LogError("scoreText jest nullem.");
+
             }
         }
     }
