@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-using System.Xml.Serialization;
 
 public class MovementController : MonoBehaviour
 {
@@ -11,17 +9,27 @@ public class MovementController : MonoBehaviour
     public Text koniecgry;
     public int scoreValue;
     public Rigidbody rb;
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    private void Start()
+    {
+        GameManager.Instance.OnScoreChanged += UpdateScore;
     }
+
+    private void UpdateScore(int newScore)
+    {
+        scoreValue = newScore;
+        if (scoreValue >= 4 && koniecgry != null)
+        {
+            koniecgry.text = "Koniec Gry!";
+        }
+    }
+
     private void GetInput()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             Debug.Log(Input.mousePosition);
-        };
+        }
         if (Input.GetKeyDown("space"))
         {
             Debug.Log("space key was pressed");
@@ -56,16 +64,12 @@ public class MovementController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.right * 2 ,ForceMode.Force);
+            GetComponent<Rigidbody>().AddForce(Vector3.right * 2, ForceMode.Force);
         }
     }
 
-
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         GetInput();
     }
-
 }

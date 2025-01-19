@@ -1,44 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
-public class textupdate : MonoBehaviour
+public class TextUpdate : MonoBehaviour
 {
     public GameObject player;
-    public Text scoreText;   
-    public Text koniecgry;    
+    public Text scoreText;
+    public Text koniecgry;
 
-    private MovementController movementController; 
-
-    void Start()
+    private void Start()
     {
-        if (player != null)
-        {
-            movementController = player.GetComponent<MovementController>();
+        GameManager.Instance.OnScoreChanged += UpdateScoreText;
+        GameManager.Instance.OnGameEnd += DisplayGameEndMessage;
+    }
 
-            if (movementController == null)
-            {
-                Debug.LogError("Brak komponentu MovementController na obiekcie gracza!");
-            }
+    private void UpdateScoreText(int score)
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
         }
     }
 
-    void Update()
+    private void DisplayGameEndMessage()
     {
-        if (movementController != null && scoreText != null)
+        if (koniecgry != null)
         {
-            scoreText.text = "Score: " + movementController.scoreValue.ToString();
-            if (movementController.scoreValue >= 4)
-            {
-                if (koniecgry != null)
-                {
-                    //Invoke("Koniec Gry!", 1.5f);
-                    koniecgry.text = "Koniec Gry!";
-                }
-
-
-            }
+            koniecgry.text = "Koniec Gry!";
         }
     }
 }
+

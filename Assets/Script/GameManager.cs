@@ -1,26 +1,66 @@
 using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static GameManager Instance { get; private set; }
+    public int Score { get; private set; }
+
+    public event Action<int> OnScoreChanged;
+    public event Action OnGameEnd;
+
+    private void Awake()
     {
-        tableCollectibles();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnEnable()
+    {
+        // Subskrypcja zdarzenia statycznego
+        Collectible.pickupEvent += HandleCollectibleCollected;
+    }
+
+    private void OnDisable()
+    {
+        //Odsubskrybowanie zdarzenia
+        Collectible.pickupEvent -= HandleCollectibleCollected;
+    }
+
+    private void HandleCollectibleCollected()
+    {
+        AddScore(1);
+    }
+
+    public void AddScore(int amount)
+    {
+        Score += amount;
+        OnScoreChanged?.Invoke(Score);
+
+        if (Score == 4)
+        {
+            EndGame();
+        }
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("Gra zakoñczona!");
+        OnGameEnd?.Invoke();
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
     public void tableCollectibles()
     {
-        GameObject[] collectibles = GameObject.FindGameObjectsWithTag("Collectibles");
+        var collectibles = GameObject.FindGameObjectsWithTag("Collectibles");
         int maxScore = collectibles.Length;
         Debug.Log("Total collectibles: " + maxScore);
-
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }
