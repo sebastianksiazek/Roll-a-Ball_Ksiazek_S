@@ -7,6 +7,7 @@ TagManager:
   - Collectibles
   - FxTemporaire
   - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX
