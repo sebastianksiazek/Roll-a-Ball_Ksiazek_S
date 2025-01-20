@@ -10,7 +10,7 @@ public class end : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(4, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 
     // Update is called once per frame
