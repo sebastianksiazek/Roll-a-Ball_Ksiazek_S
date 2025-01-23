@@ -8,6 +8,8 @@ TagManager:
   - FxTemporaire
   - Obstacle
   - Ground
+  - SafeZone
+  - Fire
   layers:
   - Default
   - TransparentFX
