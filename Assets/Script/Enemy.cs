@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public float runSpeedMultiplier = 2.0f; // Mno¿nik prêdkoœci podczas biegu
     public float rotationSpeed = 5.0f; // Szybkoœæ rotacji
     private Animator animator; // Animator postaci
+    public float followRange = 10.0f; // Zasiêg, w którym przeciwnik zaczyna œledziæ gracza
+    private bool isFollowing = false; // Flaga, czy przeciwnik œciga gracza
 
     void Start()
     {
@@ -16,36 +18,57 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        // Sprawdzenie, czy gracz jest w pobli¿u
         if (player != null)
         {
-            // Obliczanie kierunku do gracza
-            Vector3 direction = (player.position - transform.position).normalized;
-
-            // Obracanie postaci w stronê gracza
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-            // Sprawdzenie, czy gracz jest blisko i wybranie prêdkoœci
+            // Obliczanie odleg³oœci do gracza
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            float currentMoveSpeed = moveSpeed;
 
-            // Je¿eli gracz jest blisko, postaæ zaczyna biec
-            if (distanceToPlayer < 10.0f)
+            // Sprawdzamy, czy gracz jest w zasiêgu
+            if (distanceToPlayer <= followRange)
             {
-                currentMoveSpeed *= runSpeedMultiplier;
+                isFollowing = true; // Jeœli w zasiêgu, œcigamy gracza
+            }
+            else
+            {
+                isFollowing = false; // Jeœli poza zasiêgiem, nie œcigamy
             }
 
-            // Ruch w kierunku gracza
-            Vector3 movement = direction * currentMoveSpeed * Time.deltaTime;
-            transform.Translate(movement, Space.World);
-
-            // Animacja chodzenia
-            if (animator != null)
+            // Je¿eli przeciwnik œciga gracza
+            if (isFollowing)
             {
-                // Zmieniamy prêdkoœæ animacji w zale¿noœci od ruchu
-                float animationSpeed = Mathf.Abs(currentMoveSpeed);
-                animator.SetFloat("speed", animationSpeed);
+                // Obliczanie kierunku do gracza
+                Vector3 direction = (player.position - transform.position).normalized;
+
+                // Obracanie postaci w stronê gracza
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                // Sprawdzenie, czy gracz jest blisko i wybranie prêdkoœci
+                float currentMoveSpeed = moveSpeed;
+                if (distanceToPlayer < 10.0f)
+                {
+                    currentMoveSpeed *= runSpeedMultiplier; // Gracz biegnie, jeœli blisko
+                }
+
+                // Ruch w kierunku gracza
+                Vector3 movement = direction * currentMoveSpeed * Time.deltaTime;
+                transform.Translate(movement, Space.World);
+
+                // Animacja chodzenia
+                if (animator != null)
+                {
+                    // Zmieniamy prêdkoœæ animacji w zale¿noœci od ruchu
+                    float animationSpeed = Mathf.Abs(currentMoveSpeed);
+                    animator.SetFloat("speed", animationSpeed);
+                }
+            }
+            else
+            {
+                // Mo¿esz dodaæ tu animacjê, ¿e przeciwnik wraca do strefy patrolu lub staje w miejscu
+                if (animator != null)
+                {
+                    animator.SetFloat("speed", 0); // Zatrzymanie animacji, gdy nie œciga gracza
+                }
             }
         }
     }
