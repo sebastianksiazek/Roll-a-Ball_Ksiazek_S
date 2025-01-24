@@ -444,11 +444,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 622581522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 11, y: -704.0345}
-  m_SizeDelta: {x: 201.60889, y: 43.93103}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 11, y: 1412.0345}
+  m_SizeDelta: {x: 201.60889, y: 43.931152}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &483871542
 MonoBehaviour:
   m_ObjectHideFlags: 0

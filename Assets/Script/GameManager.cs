@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Gra zakoñczona!");
         OnGameEnd?.Invoke();
-        SceneManager.LoadScene(3, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void tableCollectibles()
