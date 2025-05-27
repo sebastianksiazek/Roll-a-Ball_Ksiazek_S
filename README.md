@@ -37,19 +37,3 @@
 3. Uruchom i graj!
 
 ---
-
-## 📸 Zrzuty ekranu
-
-(Tu możesz dodać obrazki lub gify z rozgrywki!)
-
----
-
-## 💡 Nauczysz się:
-
-- Obsługi podstawowych komponentów Unity
-- Sterowania ruchem obiektów z użyciem fizyki
-- Tworzenia prostych interakcji w grze
-
----
-
-Zapraszam do testowania i rozwijania projektu! ⭐
