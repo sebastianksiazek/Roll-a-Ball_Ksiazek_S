@@ -27,6 +27,7 @@
 1. Przejdź do folderu `_Build`
 2. Uruchom `roll_a_ball.exe`
 3. Baw się dobrze! 🎮
+![image](https://github.com/user-attachments/assets/7d5cc850-a673-45d0-a6c5-355d15726fc7)
 
 ---
 
