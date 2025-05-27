@@ -1,6 +1,6 @@
 # 🎮 Roll-a-Ball – Unity Game
 
-**Roll-a-Ball** to prosta, ale wciągająca gra 3D stworzona w Unity, w której sterujesz kulką i zbierasz rozrzucone po planszy obiekty. Projekt jest świetnym wstępem do nauki Unity – poznasz podstawy fizyki, interakcji z obiektami i mechaniki ruchu.
+**Roll-a-Ball** to prosta, ale wciągająca gra 3D stworzona w Unity, w której sterujesz kulką i zbierasz rozrzucone po planszy obiekty. Projekt jest świetnym wstępem do nauki Unity – podstawy fizyki, interakcji z obiektami i mechaniki ruchu.
 
 ---
 
